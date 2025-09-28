@@ -31,7 +31,7 @@ cd kpi-management-system
 
 Backend
 ```bash
-cd backend
+cd kpi-management-system
 npm install
 ```
 
@@ -55,7 +55,7 @@ JWT_SECRET=your_secret_key
 
 Backend
 ```bash
-cd backend
+cd kpi-management-system
 npm run dev
 ```
 
@@ -110,7 +110,7 @@ User Management
 ```plaintext
 kpi-management-system/
 │
-├── backend/              # API และ Database (Node.js + Express + MongoDB)
+├── kpi-backend/              # API และ Database (Node.js + Express + MongoDB)
 │   ├── models/           # Mongoose Schemas
 │   ├── routes/           # API Routes
 │   ├── controllers/      # Logic ของแต่ละ Route
