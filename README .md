@@ -66,9 +66,10 @@ npm start
 ```
 ### 📡 API Documentation
 🔑 Authentication
+```
 POST /api/auth/register → สมัครสมาชิกใหม่
-
 POST /api/auth/login → เข้าสู่ระบบ
+```
 
 👤 User Management (สำหรับ Admin)
 ```
@@ -79,6 +80,7 @@ POST /api/users → สร้างผู้ใช้งานใหม่
 PUT /api/users/:id → แก้ไขผู้ใช้งาน
 
 DELETE /api/users/:id → ลบผู้ใช้งาน
+```
 
 📈 KPI Management
 ```
@@ -89,7 +91,7 @@ POST /api/kpis → เพิ่ม KPI ใหม่
 PUT /api/kpis/:id → แก้ไข KPI
 
 DELETE /api/kpis/:id → ลบ KPI
-
+```
 ### 🖼️ Demo Screenshots
 Dashboard
 ![Dashboard Screenshot](docs/screenshots/dashboard.jpg)   
