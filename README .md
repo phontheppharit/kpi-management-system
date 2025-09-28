@@ -26,8 +26,8 @@
 ```bash
 git clone https://github.com/phontheppharit/kpi-management-system
 cd kpi-management-system
-
-2. ติดตั้ง dependencies
+```
+### 2. ติดตั้ง dependencies
 
 Backend
 
@@ -40,7 +40,7 @@ Frontend
 cd frontend
 npm install
 
-3. ตั้งค่า Environment Variables
+### 3. ตั้งค่า Environment Variables
 
 สร้างไฟล์ .env ในโฟลเดอร์ backend แล้วใส่ค่า:
 
@@ -48,7 +48,7 @@ PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 
-4. รันโปรเจค
+### 4. รันโปรเจค
 
 เปิด terminal 2 อัน:
 
@@ -63,7 +63,7 @@ Frontend
 cd frontend
 npm start
 
-📡 API Documentation
+### 📡 API Documentation
 🔑 Authentication
 
 POST /api/auth/register → สมัครสมาชิกใหม่
@@ -90,7 +90,7 @@ PUT /api/kpis/:id → แก้ไข KPI
 
 DELETE /api/kpis/:id → ลบ KPI
 
-🖼️ Demo Screenshots
+### 🖼️ Demo Screenshots
 Dashboard
 ![Dashboard Screenshot](docs/screenshots/dashboard.png)   
 KPI Management
@@ -100,7 +100,7 @@ My KPI
 User Management
 ![User Management Screenshot](docs/screenshots/userManagement.jpg)
 
-📂 Project Structure
+### 📂 Project Structure
 kpi-management-system/
 │
 ├── backend/              # API และ Database (Node.js + Express + MongoDB)
@@ -122,6 +122,6 @@ kpi-management-system/
 │
 └── README.md             # เอกสารโปรเจค
 
-👨‍💻 Authors
+### 👨‍💻 Authors
 
 Phonthep
