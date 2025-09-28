@@ -134,3 +134,362 @@ kpi-management-system/
 ### 👨‍💻 Authors
 
 Phonthep
+
+# 📌 KPI Management System - Full API Documentation
+
+## 🔑 Authentication API (`/api/auth`)
+
+### 1. Register User
+
+* **POST** `/api/auth/register`
+* **Access**: Public
+* **Request Body**:
+
+```json
+{
+  "username": "john",
+  "email": "john@example.com",
+  "password": "123456",
+  "role": "User"
+}
+```
+
+* **Success Response** `201`:
+
+```json
+{
+  "msg": "User registered successfully",
+  "user": {
+    "id": "64fae1...",
+    "username": "john",
+    "email": "john@example.com",
+    "role": "User"
+  }
+}
+```
+
+* **Error Responses**:
+
+  * `400` → User already exists
+  * `500` → Internal server error
+
+---
+
+### 2. Login
+
+* **POST** `/api/auth/login`
+* **Access**: Public
+* **Request Body**:
+
+```json
+{
+  "username": "john",
+  "password": "123456"
+}
+```
+
+* **Success Response** `200`:
+
+```json
+{
+  "token": "jwt_token_here",
+  "user": {
+    "id": "64fae1...",
+    "username": "john",
+    "email": "john@example.com",
+    "role": "User"
+  }
+}
+```
+
+* **Error Responses**:
+
+  * `400` → Invalid credentials
+  * `500` → Internal server error
+
+---
+
+### 3. Create User (Admin Only)
+
+* **POST** `/api/auth/create-user`
+* **Access**: Protected (Admin)
+* **Headers**:
+
+  * `Authorization: Bearer <JWT_TOKEN>`
+* **Request Body**: same as `register`
+* **Error Responses**:
+
+  * `401` → Unauthorized (missing/invalid token)
+  * `403` → Forbidden (role not allowed)
+  * `500` → Internal server error
+
+---
+
+## 👥 User Management API (`/api/users`)
+
+### 1. Get All Users
+
+* **GET** `/api/users`
+* **Access**: Protected
+* **Headers**:
+
+  * `Authorization: Bearer <JWT_TOKEN>`
+* **Success Response** `200`:
+
+```json
+[
+  {
+    "_id": "64fae1...",
+    "username": "john",
+    "email": "john@example.com",
+    "role": "User"
+  }
+]
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `500` → Internal server error
+
+---
+
+### 2. Update User Role
+
+* **PUT** `/api/users/:id/role`
+* **Access**: Protected
+* **Request Body**:
+
+```json
+{ "role": "Admin" }
+```
+
+* **Success Response** `200`:
+
+```json
+{
+  "_id": "64fae1...",
+  "username": "john",
+  "email": "john@example.com",
+  "role": "Admin"
+}
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `404` → User not found
+  * `500` → Internal server error
+
+---
+
+### 3. Delete User
+
+* **DELETE** `/api/users/:id`
+* **Access**: Protected
+* **Success Response** `200`:
+
+```json
+{ "msg": "User deleted" }
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `404` → User not found
+  * `500` → Internal server error
+
+---
+
+## 📊 KPI Management API (`/api/kpis`)
+
+### 1. Get My KPIs
+
+* **GET** `/api/kpis/my`
+* **Access**: Protected
+* **Success Response** `200`:
+
+```json
+[
+  {
+    "_id": "6501b2...",
+    "title": "Increase Sales",
+    "target_value": 100,
+    "actual_value": 50,
+    "status": "On Track",
+    "assigned_user": {
+      "_id": "64fae1...",
+      "username": "john",
+      "email": "john@example.com"
+    }
+  }
+]
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `500` → Internal server error
+
+---
+
+### 2. Create KPI
+
+* **POST** `/api/kpis`
+* **Access**: Protected
+* **Request Body**:
+
+```json
+{
+  "title": "Increase Sales",
+  "description": "Target sales for Q1",
+  "target_value": 100,
+  "assigned_user": "john",
+  "start_date": "2023-10-01",
+  "end_date": "2023-12-31"
+}
+```
+
+* **Success Response** `201`:
+
+```json
+{
+  "_id": "6501b2...",
+  "title": "Increase Sales",
+  "description": "Target sales for Q1",
+  "target_value": 100,
+  "actual_value": 0,
+  "status": "On Track",
+  "assigned_user": "64fae1...",
+  "start_date": "2023-10-01T00:00:00.000Z",
+  "end_date": "2023-12-31T00:00:00.000Z"
+}
+```
+
+* **Error Responses**:
+
+  * `400` → Validation error
+  * `401` → Unauthorized
+  * `500` → Internal server error
+
+---
+
+### 3. Get All KPIs
+
+* **GET** `/api/kpis`
+* **Access**: Protected
+* **Success Response** `200`:
+
+```json
+[
+  {
+    "_id": "6501b2...",
+    "title": "Increase Sales",
+    "target_value": 100,
+    "actual_value": 50,
+    "status": "On Track"
+  }
+]
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `500` → Internal server error
+
+---
+
+### 4. Get KPI By ID
+
+* **GET** `/api/kpis/:id`
+* **Access**: Protected
+* **Success Response** `200`:
+
+```json
+{
+  "_id": "6501b2...",
+  "title": "Increase Sales",
+  "target_value": 100,
+  "actual_value": 50,
+  "status": "On Track"
+}
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `404` → KPI not found
+  * `500` → Internal server error
+
+---
+
+### 5. Update KPI
+
+* **PUT** `/api/kpis/:id`
+* **Access**: Protected
+* **Rules**:
+
+  * Admin → update any KPI
+  * User → only update own KPIs
+* **Request Body**:
+
+```json
+{ "actual_value": 75, "status": "At Risk" }
+```
+
+* **Success Response** `200`:
+
+```json
+{
+  "_id": "6501b2...",
+  "title": "Increase Sales",
+  "target_value": 100,
+  "actual_value": 75,
+  "status": "At Risk"
+}
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `403` → Forbidden (not owner, not admin)
+  * `404` → KPI not found
+  * `500` → Internal server error
+
+---
+
+### 6. Delete KPI
+
+* **DELETE** `/api/kpis/:id`
+* **Access**: Protected
+* **Rules**:
+
+  * Admin → delete any KPI
+  * User → only delete own KPIs
+* **Success Response** `200`:
+
+```json
+{ "message": "KPI deleted" }
+```
+
+* **Error Responses**:
+
+  * `401` → Unauthorized
+  * `403` → Forbidden (not owner, not admin)
+  * `404` → KPI not found
+  * `500` → Internal server error
+
+---
+
+## ⚙️ Notes
+
+* **Authentication**: ส่ง JWT token ใน header:
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
+
+* **Role-based Access Control**:
+
+  * **Admin**: manage all users & KPIs
+  * **User**: manage only own KPIs
