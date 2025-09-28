@@ -64,6 +64,8 @@ Frontend
 cd frontend
 npm start
 ```
+
+---
 ### 📡 API Documentation
 🔑 Authentication
 ```
@@ -92,6 +94,7 @@ PUT /api/kpis/:id → แก้ไข KPI
 
 DELETE /api/kpis/:id → ลบ KPI
 ```
+---
 ### 🖼️ Demo Screenshots
 Dashboard
 ![Dashboard Screenshot](docs/screenshots/dashboard.jpg)   
@@ -102,6 +105,7 @@ My KPI
 User Management
 ![User Management Screenshot](docs/screenshots/userManagement.jpg)
 
+---
 ### 📂 Project Structure
 ```plaintext
 kpi-management-system/
@@ -125,6 +129,8 @@ kpi-management-system/
 │
 └── README.md             # เอกสารโปรเจค
 ```
+
+---
 ### 👨‍💻 Authors
 
 Phonthep
