@@ -37,7 +37,7 @@ npm install
 
 Frontend
 ```bash
-cd frontend
+cd kpi-frontend
 npm install
 ```
 
@@ -61,7 +61,7 @@ npm run dev
 
 Frontend
 ```bash
-cd frontend
+cd kpi-frontend
 npm start
 ```
 
@@ -110,17 +110,17 @@ User Management
 ```plaintext
 kpi-management-system/
 │
-├── kpi-backend/              # API และ Database (Node.js + Express + MongoDB)
-│   ├── models/           # Mongoose Schemas
-│   ├── routes/           # API Routes
-│   ├── controllers/      # Logic ของแต่ละ Route
-│   ├── middleware/       # JWT Auth Middleware
-│   └── server.js         # Entry point
+├── kpi-management-system/ # API และ Database (Node.js + Express + MongoDB)
+│   ├── models/            # Mongoose Schemas
+│   ├── routes/            # API Routes
+│   ├── controllers/       # Logic ของแต่ละ Route
+│   ├── middleware/        # JWT Auth Middleware
+│   └── server.js          # Entry point
 │
-├── frontend/             # React + Tailwind CSS
+├── kpi-frontend/          # React + Tailwind CSS
 │   ├── src/
-│   │   ├── components/   # UI Components
-│   │   ├── pages/        # หน้า Dashboard, KPI, User Management
+│   │   ├── components/    # UI Components
+│   │   ├── pages/         # หน้า Dashboard, KPI, User Management
 │   │   └── App.jsx
 │   └── package.json
 │
