@@ -107,7 +107,7 @@ export default function UserManagement() {
             <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
               👥 User Management
             </h1>
-            <p className="text-gray-600 text-lg">Manage user accounts, roles, and permissions</p>
+            <p className="text-gray-600 text-lg">Manage user accounts and roles</p>
           </div>
           <button
             onClick={() => {
