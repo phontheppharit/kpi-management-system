@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const roleSchema = new mongoose.Schema({
   name: {
     type: String,
-    enum: ["Admin", "User"], // ตรวจสอบค่า
+    enum: ["Admin", "User"], 
     unique: true,
     required: true,
   },
@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
      default: "User",
     },
   },
-  { timestamps: true } // auto createdAt, updatedAt
+  { timestamps: true } 
 );
 
 /* ---------------- KPI SCHEMA ---------------- */
@@ -38,7 +38,7 @@ const kpiSchema = new mongoose.Schema(
     },
     assigned_user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // อ้างอิง users
+      ref: "User", 
     },
     start_date: { type: Date, required: true },
     end_date: { type: Date, required: true },
@@ -51,14 +51,14 @@ const kpiUpdateSchema = new mongoose.Schema(
   {
     kpi_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Kpi", // อ้างอิง kpis
+      ref: "Kpi", 
       required: true,
     },
     updated_value: { type: Number, required: true },
     comment: String,
     updated_by: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // อ้างอิง users
+      ref: "User", 
       default: null,
     },
   },

@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { User } = require("../models/model"); // ✅ แก้ตรงนี้
+const { User } = require("../models/model");
 
 // ---------------- REGISTER ----------------
 exports.register = async (req, res) => {
@@ -59,9 +59,9 @@ exports.login = async (req, res) => {
 
     // สร้าง JWT token
     const token = jwt.sign(
-      { id: user._id, role: user.role },       // payload
-      process.env.JWT_SECRET || "secretkey",   // ใช้ env ถ้ามี
-      { expiresIn: "1h" }                      // อายุ token 1 ชั่วโมง
+      { id: user._id, role: user.role },       
+      process.env.JWT_SECRET || "secretkey",   
+      { expiresIn: "1h" }                      
     );
 
     res.json({
@@ -82,7 +82,7 @@ exports.login = async (req, res) => {
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find()
-      .select("-password_hash") // ✅ ไม่ส่ง password_hash กลับ
+      .select("-password_hash") 
       .populate("role_id", "name");
 
     res.json(users);

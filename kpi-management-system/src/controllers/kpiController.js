@@ -4,12 +4,12 @@ const { Kpi, User } = require("../models/model");
 const resolveAssignedUser = async (assigned_user) => {
   if (!assigned_user) return null;
 
-  // ถ้าเป็น ObjectId ที่ถูกต้อง → ใช้ได้เลย
+  
   if (assigned_user.match(/^[0-9a-fA-F]{24}$/)) {
     return assigned_user;
   }
 
-  // ถ้าเป็น username → หา user แล้วคืนค่า _id
+  
   const user = await User.findOne({ username: assigned_user });
   return user ? user._id : null;
 };
@@ -19,7 +19,7 @@ exports.createKpi = async (req, res) => {
   try {
     const data = { ...req.body };
 
-    // แปลง assigned_user ถ้ามี
+    
     if (data.assigned_user) {
       data.assigned_user = await resolveAssignedUser(data.assigned_user);
     }
@@ -61,7 +61,7 @@ exports.updateKpi = async (req, res) => {
 
     if (!kpi) return res.status(404).json({ message: "KPI not found" });
 
-    // ถ้าไม่ใช่ admin และ KPI นี้ไม่ได้ assigned ให้ user คนนี้ → ห้ามแก้ไข
+    
     if (req.user.role !== "Admin" && kpi.assigned_user.toString() !== req.user.id) {
       return res.status(403).json({ message: "ไม่อนุญาตให้แก้ KPI นี้" });
     }

@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     return res.status(401).json({ msg: "No Authorization header, access denied" });
   }
 
-  // ตัดคำว่า Bearer ออก เหลือแค่ token
+  
   const token = authHeader.startsWith("Bearer ")
     ? authHeader.replace("Bearer ", "")
     : authHeader;
@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log("✅ Decoded Token:", decoded); // Debug log
+    console.log("✅ Decoded Token:", decoded); 
     req.user = decoded; // { id, role }
     next();
   } catch (err) {

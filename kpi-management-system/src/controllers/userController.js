@@ -22,7 +22,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
-    console.log("📥 Login Request Body:", req.body); // 👈 debug log
+    console.log("📥 Login Request Body:", req.body); 
 
     const { username, password } = req.body;
     const user = await User.findOne({ username });
@@ -62,7 +62,7 @@ exports.login = async (req, res) => {
 
 exports.getUsers = async (req, res) => {
   try {
-    const users = await User.find().select("-password"); // ไม่ส่ง password กลับ
+    const users = await User.find().select("-password"); 
     res.json(users);
   } catch (err) {
     res.status(500).json({ msg: err.message });
