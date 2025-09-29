@@ -148,12 +148,17 @@ DELETE /api/kpis/:id → ลบ KPI
 ### 🖼️ Demo Screenshots
 Dashboard
 ![Dashboard Screenshot](docs/screenshots/dashboard.jpg)   
-KPI Management
-![KPI Management Screenshot](docs/screenshots/KpiManagement.jpg)
-My KPI
-![My KPI Screenshot](docs/screenshots/myKpi.jpg)
 User Management
 ![User Management Screenshot](docs/screenshots/userManagement.jpg)
+Create User
+![KPI Management Screenshot](docs/screenshots/create%20newuser.jpg)
+KPI Management
+![KPI Management Screenshot](docs/screenshots/KpiManagement.jpg)
+Create New KPI
+![KPI Management Screenshot](docs/screenshots/create%20new%20KPI.jpg)
+My KPI
+![My KPI Screenshot](docs/screenshots/myKpi.jpg)
+
 
 ---
 ### 📂 Project Structure
