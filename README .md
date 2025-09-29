@@ -175,7 +175,7 @@ kpi-management-system/
 ├── kpi-frontend/          # React + Tailwind CSS
 │   ├── src/
 │   │   ├── components/    # UI Components
-│   │   ├── pages/         # หน้า Dashboard, KPI, User Management
+│   │   ├── pages/         # หน้า Login, Register,Dashboard, KPI Management, User Management, MyKPI
 │   │   └── App.jsx
 │   └── package.json
 │
